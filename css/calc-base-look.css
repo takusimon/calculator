@@ -13,6 +13,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	box-sizing: border-box;
+	gap: 20px;
 	height: 700px;
 	width: 550px;
 	margin: 100px;
@@ -30,12 +31,23 @@ body {
 	border: 5px solid #6c7086;
 	background-color: #7f849c;
 	border-radius: 30px;
+	font-size: 50px;
+	font-weight: bold;
+	text-align: right;
+	text-wrap: break-word;
+	overflow-wrap: break-word;
+	overflow: hidden;
 }
 
 .btn {
 	width: 80px;
 	height: 80px;
 	border-radius: 90px;
+	text-align: center;
+	font-weight: bold;
+	color: #11111b;
+	font-size: 20px;
+	border: 0px;
 }
 
 .divisionRow,
@@ -46,7 +58,25 @@ body {
 	display: flex;
 	width: 400px;
 	height: 70px;
-	justify-content: space-between;
+	justify-content: center;
+	gap: 20px;
 	align-items: center;
 	border-radius: 90px;
+}
+
+.number {
+	background-color: #a6e3a1;
+}
+
+.operator {
+	background-color: #fab387;
+}
+
+#equals {
+	background-color: #eba0ac;
+}
+
+#del,
+#clear {
+	background-color: #cba6f7;
 }
