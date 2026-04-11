@@ -15,7 +15,7 @@ function multiply(firstNum, secondNum) {
 	return firstNum * secondNum;
 }
 
-// performs calculator operations and returns result
+// performs calculator operations and returnsresult
 function operate(firstNum, secondNum, operator) {
 	let result;
 	if (operator === "+") {
@@ -41,6 +41,8 @@ const calcDisplay = document.querySelector(".display");
 const calcNumbers = document.querySelectorAll(".number");
 const calcOperators = document.querySelectorAll(".operator");
 const calcEquals = document.querySelector("#equals-btn");
+const calcClear = document.querySelector("#clear");
+const calcDel = document.querySelector("#delete");
 
 calcNumbers.forEach(btn => {
 	btn.addEventListener("click", () => {
@@ -50,7 +52,7 @@ calcNumbers.forEach(btn => {
 
 calcOperators.forEach(btn => {
 	btn.addEventListener("click", () => {
-		if (calcDisplay.hasChildNodes() && firstNum === undefined){
+		if (calcDisplay.textContent !== "" && firstNum === undefined){
 			firstNum = Number(calcDisplay.textContent);
 			operator = btn.textContent;
 			calcDisplay.replaceChildren();
@@ -59,10 +61,25 @@ calcOperators.forEach(btn => {
 });
 
 calcEquals.addEventListener("click", () => {
-	if (calcDisplay.hasChildNodes() && secondNum === undefined) {
+	if (calcDisplay.textContent !== "" && secondNum === undefined) {
 		secondNum = Number(calcDisplay.textContent);
 		calcDisplay.replaceChildren();
 		const result = operate(firstNum, secondNum,operator);
 		calcDisplay.textContent = result;
+		firstNum =  undefined;
+		secondNum = undefined;
+		operator = undefined;
 	}
 });
+
+calcClear.addEventListener("click", () => {
+	firstNum = undefined;
+	secondNum = undefined;
+	operator = undefined;
+	calcDisplay.replaceChildren();
+});
+
+calcDel.addEventListener("click", () => {
+	calcDisplay.textContent = calcDisplay.textContent.slice(0,-1);
+});
+
