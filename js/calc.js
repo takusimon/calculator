@@ -157,6 +157,17 @@ numbers.addEventListener('click',(event) =>{
 
 clearBtn.addEventListener('click',clearAll);
 
+document.addEventListener('keypress',(event) =>{
+    if (justCalculated){
+        clearDisplay();
+        result = null;
+        justCalculated = false;
+    }
+    if (event.key.charCodeAt(0) >= 48 && event.key.charCodeAt(0) <= 57){
+        calcDisplay.textContent += event.key;
+    }
+})
+
 operatorBtns.addEventListener('click',assignOperator);
 equalsBtn.addEventListener('click',equals);
 delBtn.addEventListener('click',() =>calcDisplay.textContent = calcDisplay.textContent.slice(0,-1));
