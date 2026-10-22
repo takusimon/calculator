@@ -112,3 +112,15 @@ let num1,
     num2,
     operator,
     result;
+
+//Define events
+
+let calcDisplay = document.querySelector('#calc-display');
+let numbers = document.querySelector('#numbers');
+
+numbers.addEventListener('click',(event) =>{
+    let target = event.target;
+
+    calcDisplay.textContent += target.textContent;
+}
+)
