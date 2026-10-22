@@ -58,9 +58,14 @@ function assignOperator(event){
 } else {
     assignFirstNumber();
 }
-    let button = event.target;
+    let button;
+    if (event.type === 'click'){
+        button = event.target.textContent;
+    } else {
+        button = event.key;
+    }
 
-    switch (button.textContent){
+    switch (button){
         case '+':
             operator = '+';
             break;
@@ -128,6 +133,7 @@ function clearAll(){
     }
 }
 
+
 //Set Global Variables
 let num1,
     num2,
@@ -163,8 +169,23 @@ document.addEventListener('keypress',(event) =>{
         result = null;
         justCalculated = false;
     }
-    if (event.key.charCodeAt(0) >= 48 && event.key.charCodeAt(0) <= 57){
+    let characterChar = event.key.charCodeAt(0);
+    if (characterChar >= 48 && characterChar <= 57 ){
         calcDisplay.textContent += event.key;
+    }
+})
+
+document.addEventListener('keypress',(event) => {
+    let characterChar = event.key.charCodeAt(0);
+
+    if (characterChar >= 42 && characterChar <= 47 || characterChar >= 106 && characterChar <= 111){
+        assignOperator(event);
+    }
+})
+
+document.addEventListener('keypress',(event)=> {
+    if(event.key === 'Enter' || event.key === 'Equal' || event.key === 'NumpadEnter'){
+        equals();
     }
 })
 
