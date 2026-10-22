@@ -142,6 +142,7 @@ let numbers = document.querySelector('#numbers');
 let clearBtn = document.querySelector('.clear');
 let operatorBtns = document.querySelector('#operators');
 let equalsBtn = document.querySelector('.equals');
+let delBtn = document.querySelector('.del');
 
 numbers.addEventListener('click',(event) =>{
     let target = event.target;
@@ -158,3 +159,4 @@ clearBtn.addEventListener('click',clearAll);
 
 operatorBtns.addEventListener('click',assignOperator);
 equalsBtn.addEventListener('click',equals);
+delBtn.addEventListener('click',() =>calcDisplay.textContent = calcDisplay.textContent.slice(0,-1));

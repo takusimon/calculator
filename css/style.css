@@ -14,22 +14,51 @@ body {
     flex-flow: column nowrap;
     align-items: center;
     gap:2em;
+    background-color:navy;
+    padding:1em 0;
 }
 #calc-display{
     height :200px;
-    width : 400px;
     border: 1px solid black;
-    margin-top:2em;
+    margin-top:1em;
+    border-radius:5px;
+    background-color: aquamarine;
+    font-size: 32px;
 }
 
-.number,.operator {
-    width:80px;
-    height:80px;
+#clear-del-btns {
+    display: flex;
+    justify-content: space-evenly;
+    gap:.2em;
+}
+
+#calc-display,#clear-del-btns,#numbers-operator-btns{
+    width:400px;
+}
+button {
     border-radius: 5px;
     border:2px solid black;
     margin:2px;
+    width:80px;
+}
+.number,.operator {
+    
+    height:80px; 
 }
 
+.del,.clear,.equals {
+    height:50px;
+    font-weight: bold;
+}
+
+.clear {
+    background-color: red;
+    color:white;
+}
+.equals {
+    margin-left:auto;
+    background-color: orange;
+}
 #numbers-operator-btns{
     display:flex;
     flex-direction:row;
@@ -39,6 +68,7 @@ body {
 #operators {
     display: flex;
     flex-direction: column;
+    margin-left:auto;
   
 }
 
