@@ -14,7 +14,12 @@ function multiply(multiplicand,multiplier){
 }
 
 function divide(dividend,divisor){
-    return dividend/divisor;
+    if (dividend === 0 || divisor === 0){
+         return 'ERR';
+    }else {
+        return dividend/divisor;
+    }
+    
 }
 
 //Functions for the main calculator functions
@@ -66,7 +71,7 @@ function assignOperator(event){
 
     clearDisplay();
 
-    if (num1 && num2 && operator){
+    if (num1 != null && num2 != null && operator){
         equals();
     }
 }
@@ -74,7 +79,7 @@ function assignOperator(event){
 function equals(){
     assignSecondNumber();
 
-    if (num1 && num2 && operator){
+    if (num1 != null && num2 != null && operator){
         calculate(num1,num2,operator)
     }
 }
@@ -108,6 +113,14 @@ function displayResult(result){
     calcDisplay.textContent += result;
 }
 
+function clearAll(){
+    clearDisplay();
+    valueReset();
+    if (result){
+        result = null;
+    }
+}
+
 //Set Global Variables
 let num1,
     num2,
@@ -129,7 +142,7 @@ numbers.addEventListener('click',(event) =>{
 }
 )
 
-clearBtn.addEventListener('click',clearDisplay);
+clearBtn.addEventListener('click',clearAll);
 
 operatorBtns.addEventListener('click',assignOperator);
 equalsBtn.addEventListener('click',equals);
