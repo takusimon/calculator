@@ -3,15 +3,43 @@ body {
     align-items: center;
     justify-content: center;
     margin-top:4em;
+    
 }
 #calc-body {
     height:700px;
     width: 500px;
     border: 1px dotted black;
     border-radius: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap:2em;
 }
 #calc-display{
     height :200px;
     width : 400px;
     border: 1px solid black;
+    margin-top:2em;
 }
+
+.number,.operator {
+    width:80px;
+    height:80px;
+    border-radius: 5px;
+    border:2px solid black;
+    margin:2px;
+}
+
+#numbers-operator-btns{
+    display:flex;
+    flex-direction:row;
+    gap:1em;
+}
+
+#operators {
+    display: flex;
+    flex-direction: column;
+  
+}
+
+

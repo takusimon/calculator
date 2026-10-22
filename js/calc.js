@@ -117,6 +117,8 @@ let num1,
 
 let calcDisplay = document.querySelector('#calc-display');
 let numbers = document.querySelector('#numbers');
+let clearBtn = document.querySelector('.clear');
+let operatorBtns = document.querySelector('#operators');
 
 numbers.addEventListener('click',(event) =>{
     let target = event.target;
@@ -124,3 +126,5 @@ numbers.addEventListener('click',(event) =>{
     calcDisplay.textContent += target.textContent;
 }
 )
+
+clearBtn.addEventListener('click',clearDisplay);
