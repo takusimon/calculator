@@ -1,5 +1,14 @@
 body {
-
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:4em;
+}
+#calc-body {
+    height:700px;
+    width: 500px;
+    border: 1px dotted black;
+    border-radius: 10px;
 }
 #calc-display{
     height :200px;
