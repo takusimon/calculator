@@ -35,23 +35,29 @@ function valueReset(){
 }
 
 function assignFirstNumber(){
-    if (result && !num1){
+    if (result && num1 === null){
         num1 = result;
         result = null;
-    } else if (!num1){
+    } else if (num1 === null){
         num1 = +calcDisplay.textContent;
     }
 }
 
 function assignSecondNumber(){
-    if (!num2){
+    if (num2 === null){
         num2 = +calcDisplay.textContent
         clearDisplay();
     }
 }
 
 function assignOperator(event){
+    if (justCalculated) {
+    num1 = result;
+    result = null;
+    justCalculated = false;
+} else {
     assignFirstNumber();
+}
     let button = event.target;
 
     switch (button.textContent){
@@ -100,7 +106,7 @@ function calculate(num1,num2,operator){
             break;
         case '-':
             result = subtract(num1,num2);
-            valueReset;
+            valueReset();
             break;
     }
     if (result){
@@ -111,6 +117,7 @@ function calculate(num1,num2,operator){
 function displayResult(result){
     clearDisplay();
     calcDisplay.textContent += result;
+    justCalculated = true;
 }
 
 function clearAll(){
@@ -126,6 +133,7 @@ let num1,
     num2,
     operator,
     result;
+let justCalculated = false;
 
 //Define events
 
@@ -137,7 +145,11 @@ let equalsBtn = document.querySelector('.equals');
 
 numbers.addEventListener('click',(event) =>{
     let target = event.target;
-
+    if (justCalculated){
+        clearDisplay();
+        result = null;
+        justCalculated = false;
+    }
     calcDisplay.textContent += target.textContent;
 }
 )
