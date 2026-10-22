@@ -41,6 +41,7 @@ function assignFirstNumber(){
 function assignSecondNumber(){
     if (!num2){
         num2 = +calcDisplay.textContent
+        clearDisplay();
     }
 }
 
@@ -48,7 +49,7 @@ function assignOperator(event){
     assignFirstNumber();
     let button = event.target;
 
-    switch (button.id){
+    switch (button.textContent){
         case '+':
             operator = '+';
             break;
@@ -119,6 +120,7 @@ let calcDisplay = document.querySelector('#calc-display');
 let numbers = document.querySelector('#numbers');
 let clearBtn = document.querySelector('.clear');
 let operatorBtns = document.querySelector('#operators');
+let equalsBtn = document.querySelector('.equals');
 
 numbers.addEventListener('click',(event) =>{
     let target = event.target;
@@ -128,3 +130,6 @@ numbers.addEventListener('click',(event) =>{
 )
 
 clearBtn.addEventListener('click',clearDisplay);
+
+operatorBtns.addEventListener('click',assignOperator);
+equalsBtn.addEventListener('click',equals);
